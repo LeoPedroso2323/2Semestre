@@ -1,0 +1,88 @@
+-- Numeros diferentes de 5, 6 e 7
+select * from usuario where id_usuario not between 5 and 7;
+
+-- Somente o 5 e 7
+select * from usuario where id_usuario in (5,7);
+
+-- Numeros diferentes de 5 e 7
+select * from usuario where id_usuario !=5 and id_usuario !=7;
+
+
+-- Mostra os campos de telefone que são nulos
+select * from usuario where telefone <=> null;
+select * from usuario where telefone is null;
+
+-- Mostra os campos de telefone que não são nulos
+select * from usuario where not telefone <=> null;
+select * from usuario where telefone is not null;
+
+-- % Indica nenhum, um ou vários caractéres
+select * from usuario where nome like 'Maria Clara';
+
+-- Seleciona todos todos os usuáriosn que começam com a letra M
+select * from usuario where nome like 'M%';
+
+
+-- Seleciona todos todos os usuários que terminam com a letra E
+select * from usuario where nome like '%e';
+
+-- Seleciona todos todos os usuários que contém "ra" em qualquer posição e não considera os acentos 
+select * from usuario where nome like '%ra%';
+
+-- Verificar o Collation;
+show table status like 'usuario';
+
+-- Para verificar as colunas especificações das colunas da tabela usuario
+show full columns from usuario;
+
+Exemplos com _(underline)
+-- Selecionar todos os usuarios que cujos numeros de telefone tenham como segundo caractere o valor 6
+select * from usuario where telefone like '_6%';
+-- Selecionar todos os usuarios que cujos numeros de telefone tenham como terceiro caractere o valor 1
+select * from usuario where telefone like '__1%';
+-- Selecionar todos os usuarios que cujos numeros de telefone tenham como penúltimo caractere o valor 8
+select * from usuario where telefone like '%8_';
+-- Selecionar todos os usuarios que cujos numeros de telefone tenham o numero 5 presente, porém ele deve estar antes e depois de outros números 
+select * from usuario where telefone like '%_5_%';
+
+select nome, nome from usuario, organizador;
+select u.nome as usuario_nome, o.nome as organizador_nome from usuario u, organizador o;
+-- Ex com prefixo
+select usuario.nome as usuario_nome, organizador.nome as organizador_nome from usuario, organizador;
+
+select * from usuario order by nome asc;
+select * from usuario order by nome;
+select * from usuario order by nome desc;
+
+select * from usuario order by id_usuario desc;
+
+select telefone, count(*) as total_usuarios from usuario group by telefone;
+
+insert into usuario (nome, email, senha, telefone)
+    values ("Leonardo Pedroso", "lp@gmail.com", "1234", "16888886666");
+
+select avg(length(telefone)) as media_comprimento_telefone from organizador;
+
+select telefone, count(*) as total_usuarios from usuario group by telefone having count(*) > 1;
+
+update usuario set telefone = '1699999000' where email = 'fogaca@example.com';
+
+select * from usuario where email="fogaca@example.com";
+
+update organizador set senha =  'nova_senha';
+
+delete from organizador where email = 'pedro.almeida@example.com';
+
+delete from usuario where telefone like '1688%';
+
+update organizador set senha = 'senha_345' where email in ('joao.silva@example.com', 'ana.santos@example.com', 'pedro.almeida@example.com');
+
+delete from organizador where telefone like '1109%';
+
+update usuario set telefone = '16000000000' where telefone is null;
+
+delete from usuario where id_usuario in (2, 4, 6);
+
+update organizador set senha = 'nova_senha_organizador' where nome = 'Fábio Martins' and email = 'fabio.martins@example.com';
+
+delete from usuario where nome = 'Pedro Paulo' and telefone '16888881111';
