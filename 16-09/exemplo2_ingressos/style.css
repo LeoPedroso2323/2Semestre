@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: arial, sans-serif;
+  background-color: azure;
+  color: black;
+  /*garante que o body ocupe toda a altura da tela*/
+  min-height: 100vh;
+}
+
+header {
+  background-color: yellow;
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+
+footer {
+  background-color: #333;
+  padding: 30px;
+  color: white;
+  text-align: center;
+}
+
+.logo {
+  /*Uso do flexbox para alinhar a logo e o título*/
+  display: flex;
+  /*Alinha verticalmente os itens da div em questao*/
+  align-items: center;
+  /*Centraliza os itens horizontalmente*/
+  justify-content: center;
+
+  background-color: black;
+}
+
+header .logo img {
+  max-width: 70px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+} 
+
+header .logo h1{
+  margin-bottom: 10px;
+}
+
+nav ul{
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+nav ul li{
+  margin:0 15px;
+
+}
+
+nav ul li a{
+  color: aliceblue;
+  text-decoration: white;
+  font-weight: bold;
+}
+
+nav ul li a:hover{
+  text-decoration: underline;
+}
+
+main{
+  padding: 20px;
+}
+
+main section {
+  margin-bottom: 40px;
+}
+
+#home{
+  background-color: yellow;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+#home2{
+  color: blueviolet;
+}
+
+.eventos-container{
+  display: flex;
+  gap: 20px;
+}
+
+.eventos-item{
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px 30px;
+  width:100%;
+}
